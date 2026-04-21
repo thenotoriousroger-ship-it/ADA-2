@@ -3,6 +3,7 @@ package ada2_POOGit;
 import java.awt.EventQueue;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -28,6 +29,7 @@ public class gui extends JFrame {
 	private JTextField textNombre;
 	private JTextField textMuestra;
 	DefaultListModel<String> modeloHistorial= new DefaultListModel<>();
+	ArrayList<String> Nombres = new ArrayList<String>();
 	ArrayList<registro> ListaRegistros = new ArrayList<registro>();
 	LocalDate hoy = LocalDate.now();
 
@@ -133,24 +135,41 @@ public class gui extends JFrame {
 		
 		JButton btnHistorial = new JButton("Historial");
 		btnHistorial.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {			
-							
-				for (int i=0; i<ListaRegistros.size();i++) {
-					registro Persona= ListaRegistros.get(i);	
-							
-							modeloHistorial.addElement(Persona.getNombre()+ " "+ Persona.getGlucosa()+ " "+ Persona.getFecha());			
-				}				
-			}
-			
+			public void actionPerformed(ActionEvent e) {	
+				
+				for (int i = 0; i < ListaRegistros.size(); i++) {
+					Nombres.add(ListaRegistros.get(i).getNombre());
+				}
+				Collections.sort(Nombres);
+				for (String i : Nombres) {
+
+	//			String nombreAct= "";	
+				
+		//			registro Persona= ListaRegistros.get(i);	
+									
+	//				if (!nombreAct.equals(Persona.getNombre())) {
+	//				nombreAct=Persona.getNombre();
+						
+	//					if (!Nombres.contains(nombreAct)) {					        
+	//				       Nombres.add(Persona.getNombre());
+				
+					       for (int j=0; j<ListaRegistros.size();j++) {
+								registro PBuscar= ListaRegistros.get(j);
+								
+								if (PBuscar.getNombre().equals(i)){	
+								modeloHistorial.addElement("Nombre:"+PBuscar.getNombre() + " "+"Glusocosa:"+ PBuscar.getGlucosa() + " "+"Fecha:" + PBuscar.getFecha());													
+					}
+					   
+					}
+				}
+				
+		}	
 		});
 		toolBar.add(btnHistorial);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(163, 264, 224, 130);
-		contentPane.add(scrollPane);
-		
 		JList listHistprial = new JList();
-		scrollPane.setColumnHeaderView(listHistprial);
+		listHistprial.setBounds(133, 286, 372, 131);
+		contentPane.add(listHistprial);
 		listHistprial.setModel(modeloHistorial);
 }
 }

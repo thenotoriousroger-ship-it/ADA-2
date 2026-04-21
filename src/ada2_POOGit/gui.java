@@ -134,31 +134,14 @@ public class gui extends JFrame {
 		JButton btnHistorial = new JButton("Historial");
 		btnHistorial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
-				String nombreAct= "";		
-				
+							
 				for (int i=0; i<ListaRegistros.size();i++) {
-					registro Rpersona= ListaRegistros.get(i);				
-					if (!nombreAct.equals(Rpersona.getNombre()));
-					nombreAct= Rpersona.getNombre();
-					
-					for (int j=0; j<ListaRegistros.size();j++) {
-						registro Rcomp= ListaRegistros.get(j);
-						if (Rcomp.equals(nombreAct));{
-							modeloHistorial.addElement(Rcomp.getNombre()+ " "+ Rcomp.getGlucosa()+ " "+ Rcomp.getFecha());
-						}
-					}
-					
-					
-					
-					
-					
-				
-				
-				
-				}
-				
-				
+					registro Persona= ListaRegistros.get(i);	
+							
+							modeloHistorial.addElement(Persona.getNombre()+ " "+ Persona.getGlucosa()+ " "+ Persona.getFecha());			
+				}				
 			}
+			
 		});
 		toolBar.add(btnHistorial);
 		

@@ -135,34 +135,29 @@ public class gui extends JFrame {
 		
 		JButton btnHistorial = new JButton("Historial");
 		btnHistorial.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {	
-				
+			public void actionPerformed(ActionEvent e) {
+	
 				for (int i = 0; i < ListaRegistros.size(); i++) {
 					Nombres.add(ListaRegistros.get(i).getNombre());
 				}
+			String nombreAct= "";
+			
 				Collections.sort(Nombres);
 				for (String i : Nombres) {
-
-	//			String nombreAct= "";	
-				
-		//			registro Persona= ListaRegistros.get(i);	
 									
-	//				if (!nombreAct.equals(Persona.getNombre())) {
-	//				nombreAct=Persona.getNombre();
-						
-	//					if (!Nombres.contains(nombreAct)) {					        
-	//				       Nombres.add(Persona.getNombre());
+				if (!nombreAct.equals(i)) {
+					nombreAct= i;
 				
 					       for (int j=0; j<ListaRegistros.size();j++) {
 								registro PBuscar= ListaRegistros.get(j);
 								
-								if (PBuscar.getNombre().equals(i)){	
+								if (PBuscar.getNombre().equals(nombreAct)){	
 								modeloHistorial.addElement("Nombre:"+PBuscar.getNombre() + " "+"Glusocosa:"+ PBuscar.getGlucosa() + " "+"Fecha:" + PBuscar.getFecha());													
 					}
 					   
 					}
 				}
-				
+				}	
 		}	
 		});
 		toolBar.add(btnHistorial);

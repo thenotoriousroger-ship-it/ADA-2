@@ -29,7 +29,7 @@ public class gui extends JFrame {
 	private JTextField textNombre;
 	private JTextField textMuestra;
 	DefaultListModel<String> modeloHistorial= new DefaultListModel<>();
-	ArrayList<String> Nombres = new ArrayList<String>();
+	ArrayList<String> ListaNombres = new ArrayList<String>();
 	ArrayList<registro> ListaRegistros = new ArrayList<registro>();
 	LocalDate hoy = LocalDate.now();
 
@@ -54,7 +54,7 @@ public class gui extends JFrame {
 	 */
 	public gui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 602, 484);
+		setBounds(100, 100, 696, 459);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -130,7 +130,7 @@ public class gui extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JToolBar toolBar = new JToolBar();
-		toolBar.setBounds(44, 264, 96, 28);
+		toolBar.setBounds(10, 246, 96, 28);
 		contentPane.add(toolBar);
 		
 		JButton btnHistorial = new JButton("Historial");
@@ -138,15 +138,15 @@ public class gui extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 	
 				for (int i = 0; i < ListaRegistros.size(); i++) {
-					Nombres.add(ListaRegistros.get(i).getNombre());
+					ListaNombres.add(ListaRegistros.get(i).getNombre());
 				}
 			String nombreAct= "";
 			
-				Collections.sort(Nombres);
-				for (String i : Nombres) {
+				Collections.sort(ListaNombres);
+				for (String nombres : ListaNombres) {
 									
-				if (!nombreAct.equals(i)) {
-					nombreAct= i;
+				if (!nombreAct.equals(nombres)) {
+					nombreAct= nombres;
 				
 					       for (int j=0; j<ListaRegistros.size();j++) {
 								registro PBuscar= ListaRegistros.get(j);
@@ -163,7 +163,7 @@ public class gui extends JFrame {
 		toolBar.add(btnHistorial);
 		
 		JList listHistprial = new JList();
-		listHistprial.setBounds(133, 286, 372, 131);
+		listHistprial.setBounds(38, 280, 372, 131);
 		contentPane.add(listHistprial);
 		listHistprial.setModel(modeloHistorial);
 }

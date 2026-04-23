@@ -176,7 +176,7 @@ public class gui extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 
 		        String nombreBuscar = JOptionPane.showInputDialog("Ingrese el nombre:");
-
+		        
 		        modeloHistorial.clear(); 
 
 		        boolean encontrado = false;
@@ -194,6 +194,7 @@ public class gui extends JFrame {
 		                encontrado = true;
 		            }
 		        }
+
 
 		        if (!encontrado) {
 		            JOptionPane.showMessageDialog(null, "No existe");

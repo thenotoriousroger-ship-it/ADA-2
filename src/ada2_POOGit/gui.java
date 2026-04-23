@@ -196,10 +196,12 @@ public class gui extends JFrame {
 		        }
 
 
+		       
+
 		        if (!encontrado) {
 		            JOptionPane.showMessageDialog(null, "No existe");
 		        }
 		    }
 		});
-}
+	}
 }

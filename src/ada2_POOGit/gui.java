@@ -32,7 +32,8 @@ public class gui extends JFrame {
 	ArrayList<String> ListaNombres = new ArrayList<String>();
 	ArrayList<registro> ListaRegistros = new ArrayList<registro>();
 	LocalDate hoy = LocalDate.now();
-
+	DefaultListModel<String> modeloGlucosa = new DefaultListModel<>();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -166,5 +167,38 @@ public class gui extends JFrame {
 		listHistprial.setBounds(38, 280, 372, 131);
 		contentPane.add(listHistprial);
 		listHistprial.setModel(modeloHistorial);
+		
+		JButton btnBuscar = new JButton("Buscar Persona");
+		btnBuscar.setBounds(38, 34, 150, 23);
+		contentPane.add(btnBuscar);
+		
+		btnBuscar.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+
+		        String nombreBuscar = JOptionPane.showInputDialog("Ingrese el nombre:");
+
+		        modeloHistorial.clear(); 
+
+		        boolean encontrado = false;
+
+		        for (registro r : ListaRegistros) {
+
+		            if (r.getNombre().equalsIgnoreCase(nombreBuscar)) {
+
+		                modeloHistorial.addElement(
+		                    "Nombre: " + r.getNombre() +
+		                    " Glucosa: " + r.getGlucosa() +
+		                    " Fecha: " + r.getFecha()
+		                );
+
+		                encontrado = true;
+		            }
+		        }
+
+		        if (!encontrado) {
+		            JOptionPane.showMessageDialog(null, "No existe");
+		        }
+		    }
+		});
 }
 }

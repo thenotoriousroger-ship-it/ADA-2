@@ -137,6 +137,8 @@ public class gui extends JFrame {
 		JButton btnHistorial = new JButton("Historial");
 		btnHistorial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+			
 	
 				for (int i = 0; i < ListaRegistros.size(); i++) {
 					ListaNombres.add(ListaRegistros.get(i).getNombre());
@@ -178,6 +180,18 @@ public class gui extends JFrame {
 			int elim = listHistprial.getSelectedIndex();
 			
 			if(elim != -1) {
+				
+				String ReSelecc =modeloHistorial.getElementAt(elim);
+				
+					for (int t = 0; t < ListaRegistros.size(); t++) {
+						registro r = ListaRegistros.get(t);
+						String TxtRegis = "Nombre:"+r.getNombre() + " "+"Glusocosa:"+ r.getGlucosa() + " "+"Fecha:" + r.getFecha();
+						
+						if (TxtRegis.equals(ReSelecc)) {
+							ListaRegistros.remove(t);
+						}
+						
+					}
 				modeloHistorial.remove(elim);
 				JOptionPane.showMessageDialog(null,  "Reistro eliminado");
 				

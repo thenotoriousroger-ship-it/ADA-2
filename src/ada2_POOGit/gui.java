@@ -172,6 +172,27 @@ public class gui extends JFrame {
 		btnBuscar.setBounds(38, 34, 150, 23);
 		contentPane.add(btnBuscar);
 		
+		JButton btnEliminar = new JButton("Eliminar Persona");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			int elim = listHistprial.getSelectedIndex();
+			
+			if(elim != -1) {
+				modeloHistorial.remove(elim);
+				JOptionPane.showMessageDialog(null,  "Reistro eliminado");
+				
+			}else {
+				JOptionPane.showMessageDialog(null, "Seleciona un regisro");
+	}
+			}	
+		
+			
+		});
+		btnEliminar.setBounds(258, 34, 152, 23);
+		contentPane.add(btnEliminar);
+		
+		
+
 		btnBuscar.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 

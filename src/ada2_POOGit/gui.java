@@ -138,8 +138,6 @@ public class gui extends JFrame {
 		btnHistorial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-			
-	
 				for (int i = 0; i < ListaRegistros.size(); i++) {
 					ListaNombres.add(ListaRegistros.get(i).getNombre());
 				}
@@ -230,9 +228,7 @@ public class gui extends JFrame {
 		            }
 		        }
 
-
 		       
-
 		        if (!encontrado) {
 		            JOptionPane.showMessageDialog(null, "No existe");
 		        }
